@@ -41,7 +41,35 @@ namespace cis237Inclass1
                 Console.WriteLine(employee.ToString() + " " + employee.YearlySalary());
                 }
             }
-            
+
+
+            UserInterface ui = new UserInterface();
+
+
+            int choice = ui.GetUserInput();
+
+            while (choice != 2)
+            { 
+                if (choice == 1) //May be better to use a switch statement
+                {
+                    string allOutput = "";
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee != null)
+                        {
+                            allOutput += employee.ToString() + " " + employee.YearlySalary() + Environment.NewLine;
+                        }
+                    }
+
+                    ui.PrintAllOutput(allOutput);
+                
+
+                }
+                choice = ui.GetUserInput();
+            }
+
+
+
         }
     }
 }
